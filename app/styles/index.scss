@@ -1,1 +1,95 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+.head {
+  text-align: center;
+  font-style: italic;
+}
+.parent{
+  color: rgb(0, 0, 0);
+  font-size: large;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0em 10em 0em 10em;
+}
+
+.diatext {
+  font-size: large;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0%;
+}
+
+.X{
+  // background-color: rgba(255, 0, 0);
+  content:url(https://media.istockphoto.com/vectors/dirty-grunge-hand-drawn-with-brush-strokes-cross-x-vector-isolated-vector-id1201202836?k=20&m=1201202836&s=612x612&w=0&h=0ib7KQaJXonfKN0-tGNaMUIw2Hre9sJjd4hTsc3QwBc=);
+}
+
+.O{
+  // background-color: rgba(0, 0, 255);
+  content:url(https://imgprd19.hobbylobby.com/6/f0/3c/6f03cacf1a6d78abcaa8e3655485f2f7c52978fe/700Wx700H-192948-0320-px.jpg);
+}
+
+.noodle {
+  font-size: large;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dialogue {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  // z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.568); /* Fallback color */
+  // padding: 60px;
+  text-align: center;
+}
+
+
+
+.child {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+  // width: 30%;  /* Magic! */
+  // height: 30%;
+  // background-color: rgb(223, 192, 106);
+  border: 1px solid black;
+  text-align: center;
+  flex: auto;
+}
+
+.gameNotYet {
+  display: block;
+  text-align: center;
+}
+
+.gameStarted {
+  display: none;
+  text-align: center;
+}
+
+#endGame {
+  text-align: center;
+}
+
+#ui-display {
+  text-align: center;
+}
+#error-message {
+  text-align: center;
+}
+
+div, a {
+    /* add border to padding for visibility */
+    // padding: 1rem;
+
+}
+
+html, body{
+  height: 100%;
+}
