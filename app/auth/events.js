@@ -19,7 +19,8 @@ const onSignUp = function (event) {
   const formData = getFormFields(form)
 
   // make a POST / sign up request, pass it the email/password confirmation
-  api.signUp(formData)
+  api
+    .signUp(formData)
   // if our sign up request is successsful, run the signUpSuccess function
     .then(ui.signUpSuccess)
   // if our sign up request incurs an eroor, run the signUpFailure function
@@ -61,9 +62,36 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  api
+    .newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const onUpdateGame = function (ind, value) {
+  event.preventDefault()
+  api.updateGame(ind, value)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+}
+
+const onIndexGames = function (event) {
+  event.preventDefault()
+  console.log('onIndexGames Running')
+  api
+    .indexGames()
+    .then(ui.indexGamesSuccess)
+    .catch(ui.indexGamesFailure)
+}
+
 // export our event handler functions, so we can use them in app.ja
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onNewGame,
+  onUpdateGame,
+  onIndexGames
 }

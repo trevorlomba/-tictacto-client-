@@ -43,8 +43,54 @@ const signOut = function () {
   })
 }
 
+const newGame = function () {
+  return $.ajax({
+    url: `${config.apiUrl}/games`,
+    method: 'POST',
+
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const indexGames = function () {
+  return $.ajax({
+    url: `${config.apiUrl}/games`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const updateGame = function (ind, value) {
+  const ident = store.game._id
+  console.log(`index is ${ind} and value is ${value}`)
+  return $.ajax({
+    url: `${config.apiUrl}/games/${ident}`,
+    method: 'PATCH',
+    data: {
+      game: {
+        cell: {
+          index: ind,
+          value: value
+        },
+        over: false
+      }
+    },
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  },
+  console.log(store))
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  newGame,
+  indexGames,
+  updateGame
 }

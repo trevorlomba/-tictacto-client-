@@ -3,12 +3,15 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+// const { indexGames } = require('./auth/api')
+
 const authEvents = require('./auth/events')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#endgame').on('click', authEvents.onSignOut)
+  $('.new-game').on('click', authEvents.onNewGame)
   // document.querySelectorAll('.cell').forEach((cell) => cell.addEventListener('click', handleCellClick));
 
   $('.dialogue').hide()
@@ -22,9 +25,17 @@ $(() => {
     gameArray[clickedCellIndex - 1] = ii
     // console.log(i.getAttribute('name'))
     console.log(gameArray)
+    authEvents.onUpdateGame(clickedCellIndex, ii)
   }
+  // function handleCellPlayed(i, ii) {
+  //   const clickedCellIndex = i.getAttribute("id");
+  //   gameArray[clickedCellIndex - 1] = ii;
+  //   // console.log(i.getAttribute('name'))
+  //   console.log(gameArray);
+  // }
   $(document).ready(function () {
     $('.newGame').click(function () {
+      authEvents.onNewGame()
       $('.dialogue').hide()
       $('.noodle').show()
       $('.gameStarted').show()
@@ -45,6 +56,7 @@ $(() => {
       oScore = 0
       gameArray = ['', '', '', '', '', '', '', '', '']
     })
+    $('#indexGames').on('click', authEvents.onIndexGames)
   })
   // function createDialog (title, text) {
   //   return $("<div class='dialog' title='" + title + "'><p>" + text + '</p></div>')
