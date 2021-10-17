@@ -30,7 +30,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   // prevent default action of refrewshing the page
   event.preventDefault()
-
   // require our api auth functions
   // event.target is the form that caused the 'submit' event
 

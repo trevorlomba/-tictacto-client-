@@ -3,7 +3,6 @@
 
 .head {
   text-align: center;
-  font-style: italic;
 }
 .parent{
   color: rgb(0, 0, 0);
@@ -79,6 +78,7 @@
 
 #ui-display {
   text-align: center;
+  display: none;
 }
 #error-message {
   text-align: center;

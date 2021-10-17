@@ -6,12 +6,16 @@
 // const { indexGames } = require('./auth/api')
 
 const authEvents = require('./auth/events')
+const { xWins, oWins, draw } = require('./auth/ui')
 
 $(() => {
+  let game = 'inactive'
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#endgame').on('click', authEvents.onSignOut)
+  // $('#endgame').on('click', authEvents.onSignOut)
   $('.new-game').on('click', authEvents.onNewGame)
+  // $('.new-game').on('click', game = 'active')
+
   // document.querySelectorAll('.cell').forEach((cell) => cell.addEventListener('click', handleCellClick));
 
   $('.dialogue').hide()
@@ -34,6 +38,9 @@ $(() => {
   //   console.log(gameArray);
   // }
   $(document).ready(function () {
+    $('.new-game').click(function () {
+      game = 'active'
+    })
     $('.newGame').click(function () {
       authEvents.onNewGame()
       $('.dialogue').hide()
@@ -50,8 +57,10 @@ $(() => {
       $('.noodle').show()
     })
     $('#endGame').click(function () {
-      // $('.gameNotYet').show()
-      // $('.gameStarted').hide()
+      authEvents.onSignOut(event)
+      game = 'inactive'
+      $('.gameNotYet').show()
+      $('.gameStarted').hide()
       xScore = 0
       oScore = 0
       gameArray = ['', '', '', '', '', '', '', '', '']
@@ -75,23 +84,30 @@ $(() => {
   //     })
   // }
   function announceWinner (i) {
+    game = 'inactive'
     if (i === 'X') {
       xScore++
       $('.dialogue').css('background-color', 'rgba(255, 0, 0, 0.377')
+      xWins()
     } else {
       oScore++
       $('.dialogue').css('background-color', 'rgba(0, 0, 255, 0.377')
+      oWins()
     }
     $('.diatext').text('Exes - ' + xScore + '     |      Ohs - ' + oScore)
     // $('.noodle').hide()
     $('.dialogue').show()
+    $('.dialogue').fadeOut(500)
     cellClear()
     turn = 0
     // createDialog
   }
   function announceDraw () {
+    game = 'inactive'
+    draw()
     $('.dialogue').css('background-color', 'rgba(0, 0, 0, 0.377')
     $('.dialogue').show()
+    $('.dialogue').fadeOut(500)
     cellClear()
     turn = 0
     // createDialog
@@ -132,20 +148,24 @@ $(() => {
   }
 
   const cellUpdate = function (player) {
+    if (game === 'active') {
     // $($(event.target).css('background-color', 'red'))
     // $($(event.target).html(player))
-    $($(event.target).removeClass('empty'))
-    $($(event.target).addClass(player))
+      $($(event.target).removeClass('empty'))
+      $($(event.target).addClass(player))
 
-    // const numb = document.getElementById('9').getAttribute('name')
-    // const numb1 = parseInt(numb)
-    // console.log(numb1)
-    // console.log(gameArray)
+      // const numb = document.getElementById('9').getAttribute('name')
+      // const numb1 = parseInt(numb)
+      // console.log(numb1)
+      // console.log(gameArray)
 
-    // console.log(gameArray)
-    const clickedCell = event.target
-    handleCellPlayed(clickedCell, player)
-    checkWinner(player)
+      // console.log(gameArray)
+      const clickedCell = event.target
+      handleCellPlayed(clickedCell, player)
+      checkWinner(player)
+    } else {
+      console.log('game not started')
+    }
   }
 
   const cellClear = function () {
