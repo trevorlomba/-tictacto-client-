@@ -21,12 +21,12 @@
 
 .X{
   // background-color: rgba(255, 0, 0);
-  content:url(https://media.istockphoto.com/vectors/dirty-grunge-hand-drawn-with-brush-strokes-cross-x-vector-isolated-vector-id1201202836?k=20&m=1201202836&s=612x612&w=0&h=0ib7KQaJXonfKN0-tGNaMUIw2Hre9sJjd4hTsc3QwBc=);
+  content:url("app/styles/x.png");
 }
 
 .O{
   // background-color: rgba(0, 0, 255);
-  content:url(https://imgprd19.hobbylobby.com/6/f0/3c/6f03cacf1a6d78abcaa8e3655485f2f7c52978fe/700Wx700H-192948-0320-px.jpg);
+  content:url("app/styles/o.png");
 }
 
 .noodle {
@@ -67,12 +67,35 @@
   text-align: center;
 }
 
-.gameStarted {
-  display: none;
+input {
   text-align: center;
+  margin-bottom: 1em
+}
+
+#sign-up {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+#sign-in {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.gameStarted {
+  text-align: center;
+  display: none;
 }
 
 #endGame {
+  text-align: center;
+}
+
+#index-games {
   text-align: center;
 }
 
