@@ -1,4 +1,4 @@
-const { xWins, oWins, draw } = require('./auth/ui')
+const { xWins, oWins, draw, gameNotStarted } = require('./auth/ui')
 const authEvents = require('./auth/events')
 
 let game = 'inactive'
@@ -26,6 +26,22 @@ const handleCellPlayed = (first, second) => {
   const clickedCellIndex = first.getAttribute('id')
   gameArray[clickedCellIndex - 1] = second
   authEvents.onUpdateGame(clickedCellIndex, second)
+  // $('#ui-display').hide()
+  let player
+  switch (second) {
+    case 'X':
+      $('#ui-display').removeClass()
+      $('#ui-display').addClass('text-danger')
+      player = 'Exes'
+      break
+    case 'O':
+      $('#ui-display').removeClass()
+      $('#ui-display').addClass('text-primary')
+      player = 'Ohs'
+      break
+  }
+
+  $('#ui-display').text(player + ' Played ' + clickedCellIndex).fadeIn(500)
 }
 
 const cellUpdate = player => {
@@ -37,7 +53,7 @@ const cellUpdate = player => {
     handleCellPlayed(clickedCell, player)
     checkWinner(player)
   } else {
-    console.log('game not started')
+    gameNotStarted()
   }
 }
 

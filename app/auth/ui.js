@@ -67,7 +67,7 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function (responseData) {
   $('#ui-display').hide()
-  $('#ui-display').text('Logged out successfully!').fadeIn(2000)
+  $('#ui-display').text('Logged Out Successfully!').fadeIn(2000)
   // $('#ui-display').fadeOut(5000)
 
   // remove existing classes, then add a green text success class from bootstrap
@@ -83,7 +83,7 @@ const signOutSuccess = function (responseData) {
 
 const signOutFailure = function () {
   $('#ui-display').hide()
-  $('#ui-display').text('Logged out unsuccessfully!').fadeIn(2000)
+  $('#ui-display').text('Log Out Failed!').fadeIn(2000)
   // $('#ui-display').fadeOut(5000)
 
   // remove existing classes, then add a green text success class from bootstrap
@@ -98,7 +98,7 @@ const newGameSuccess = function (responseData) {
 
   console.log('responseData is ', responseData)
   $('#ui-display').hide()
-  $('#ui-display').text('new game started!').fadeIn(2000)
+  $('#ui-display').text('New Game Started!').fadeIn(2000)
   // $('#ui-display').fadeOut(5000)
 
   // remove existing classes, then add a green text success class from bootstrap
@@ -123,7 +123,7 @@ const newGameFailure = function (error) {
 
 const updateGameSuccess = function (responseData) {
   store.game = responseData.game
-  console.log('update game success')
+  console.log('Update Game Success')
   console.log(store.game)
 }
 //   // we are going to add the 'user' we got back in our response's data to the 'store' object so we can accses the 'user's' token later in the api.js
@@ -183,6 +183,15 @@ const draw = function () {
   $('#ui-display').text('Tie!').fadeIn(500)
   // $('#ui-display').fadeOut(5000)
 }
+
+const gameNotStarted = function () {
+  $("#ui-display").hide();
+  $("#ui-display").removeClass();
+  $("#ui-display").addClass("text-secondary");
+  $("#ui-display").text("Start New Game First").fadeIn(500);
+  // $('#ui-display').fadeOut(5000)
+};
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -196,7 +205,8 @@ module.exports = {
   updateGameFailure,
   oWins,
   xWins,
-  draw
+  draw,
+  gameNotStarted
   // indexGamesFailure,
   // indexGamesSuccess
 }
