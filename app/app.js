@@ -42,6 +42,7 @@ const cellUpdate = player => {
 }
 
 const checkWinner = i => {
+  console.log('i is ' + i)
   if ((gameArray[0] === gameArray[1]) && (gameArray[1] === gameArray[2]) && (gameArray[0] !== '')) {
     announceWinner(i)
   } else if ((gameArray[3] === gameArray[4]) && (gameArray[4] === gameArray[5]) && (gameArray[4] !== '')) {
@@ -73,7 +74,11 @@ const announceWinner = i => {
   switch (i) {
     case 'X':
       xScore++
-      $('.dialogue').css('background-color', 'rgba(255, 0, 0, 0.377')
+      $('.dialogue').css(
+        'background-color',
+        'rgba(255, 0, 0, 0.377'
+      )
+      console.log(xScore)
       xWins()
       break
     case 'O':
@@ -82,6 +87,7 @@ const announceWinner = i => {
       oWins()
       break
   }
+
   $('.dialogueText').text('Exes - ' + xScore + '     |      Ohs - ' + oScore)
   showDialogue()
   turn = 0
@@ -92,6 +98,19 @@ const announceDraw = () => {
   draw()
   $('.dialogue').css('background-color', 'rgba(0, 0, 0, 0.377')
   turn = 0
+}
+
+const setNewGame = () => {
+  $('.dialogue').hide()
+  $('.nav').show()
+  $('.gameStarted').show()
+  $('.gameNotYet').hide()
+  $('.dialogueText').text('Exes - ' + xScore + '     |      Ohs - ' + oScore)
+}
+
+const hideDialogue = () => {
+  $('.dialogue').hide()
+  $('.nav').show()
 }
 
 $(() => {
@@ -106,18 +125,13 @@ $(() => {
     })
     $('.newGame').click(function () {
       authEvents.onNewGame()
-      $('.dialogue').hide()
-      $('.nav').show()
-      $('.gameStarted').show()
-      $('.gameNotYet').hide()
-      $('.dialogueText').text('Exes - ' + xScore + '     |      Ohs - ' + oScore)
+      setNewGame()
     })
     $('.nav').click(function () {
       gameClear()
     })
     $('.dialogue').click(function () {
-      $('.dialogue').hide()
-      $('.nav').show()
+      hideDialogue()
     })
     $('#endGame').click(function () {
       authEvents.onSignOut(event)
