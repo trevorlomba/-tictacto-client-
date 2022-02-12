@@ -2,7 +2,11 @@
 
 
 .head {
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-top: 1em;
 }
 .parent{
   color: rgb(0, 0, 0);
@@ -10,6 +14,10 @@
   display: flex;
   flex-flow: row wrap;
   margin: 0em 10em 0em 10em;
+}
+
+.game-container {
+  // margin: 0em 0em 10em 0em;
 }
 
 .dialogueText {
@@ -20,12 +28,12 @@
 }
 
 .X{
-  background-color: red;
+  background-color: #da4f4a;
   content:url("app/styles/x.png");
 }
 
 .O{
-  background-color: blue;
+  background-color: #016ecd;
   content:url("app/styles/o.png");
 }
 
@@ -105,8 +113,13 @@ input {
 
 #ui-display {
   text-align: center;
-  display: none;
+  display: block;
 }
+
+#ui-box {
+  height: 1em;
+}
+
 #error-message {
   text-align: center;
 }

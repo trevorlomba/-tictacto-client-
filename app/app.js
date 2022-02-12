@@ -1,4 +1,4 @@
-const { xWins, oWins, draw, gameNotStarted } = require('./auth/ui')
+const { xWins, oWins, draw, gameNotStarted, updateGameDialogue } = require('./auth/ui')
 const authEvents = require('./auth/events')
 
 let game = 'inactive'
@@ -30,18 +30,15 @@ const handleCellPlayed = (first, second) => {
   let player
   switch (second) {
     case 'X':
-      $('#ui-display').removeClass()
-      $('#ui-display').addClass('text-danger')
-      player = 'Exes'
+      player = "X's"
       break
+
     case 'O':
-      $('#ui-display').removeClass()
-      $('#ui-display').addClass('text-primary')
-      player = 'Ohs'
+      player = "Oh's"
       break
   }
 
-  $('#ui-display').text(player + ' Played ' + clickedCellIndex).fadeIn(500)
+  updateGameDialogue(player, clickedCellIndex)
 }
 
 const cellUpdate = player => {

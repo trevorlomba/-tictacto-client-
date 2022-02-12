@@ -4,193 +4,106 @@
 const store = require('../store')
 
 const signUpSuccess = function (responseData) {
-  $('#ui-display').hide()
-  $('#ui-display').text('signed up successfully!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-success')
-
-  // clear (reset) all of the forms
+  $('#ui-display').css('display', 'none').text('Signed Up Successfully!').removeClass().addClass('text-success')
+  $('#ui-display').fadeIn(500)
   $('form').trigger('reset')
 }
 
 const signUpFailure = function (responseData) {
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-danger')
-  $('#ui-display').hide()
-  $('#ui-display').text('signed up unsuccessfully!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-
-  // clear (reset) all of the forms
+  $('#ui-display').css('display', 'none').text('Signed Up Unsuccessfully!').removeClass().addClass('text-danger')
+  $('#ui-display').fadeIn(500)
   $('form').trigger('reset')
 }
 
 const signInSuccess = function (responseData) {
-  // we are going to add the 'user' we got back in our response's data to the 'store' object so we can accses the 'user's' token later in the api.js
   store.user = responseData.user
-
-  // tell the user it was successful
-  $('#ui-display').hide()
-  $('#ui-display').text('logged in successfully!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-success')
-
-  // clear (reset) all of the forms
+  $('#ui-display').css('display', 'none').text('Signed In Successfully!').removeClass().addClass('text-success')
+  $('#ui-display').fadeIn(500)
   $('form').trigger('reset')
-
   $('.gameNotYet').hide()
   $('.gameStarted').show()
-
-  console.log('responseData is ', responseData)
 }
 
 const signInFailure = function (error) {
-  $('#ui-display').hide()
-  $('#ui-display').text('Logged in unsuccessfully!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-danger')
+  $('#ui-display').css('display', 'none').text('Signed In Unsuccessfully!').removeClass().addClass('text-danger')
+  $('#ui-display').fadeIn(500)
 
   $('form').trigger('reset')
 
   console.error('error is ', error)
 }
 
-const signOutSuccess = function (responseData) {
-  $('#ui-display').hide()
-  $('#ui-display').text('Logged Out Successfully!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
+const signOutSuccess = function () {
+  $('#ui-display').css('display', 'none').text('Signed Out Successfully!').removeClass().addClass('text-success')
+  $('#ui-display').fadeIn(500)
 
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-warning')
-
-  // clear (reset) all of the forms
   $('form').trigger('reset')
 
   $('.gameNotYet').show()
-  $('.gameStarted').hide()
+  $('.gameStarted').css('display', 'none')
 }
 
 const signOutFailure = function () {
-  $('#ui-display').hide()
-  $('#ui-display').text('Log Out Failed!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-danger')
+  $('#ui-display').css('display', 'none').text('Sign Out Failed!').removeClass().addClass('text-danger')
+  $('#ui-display').fadeIn(500)
 }
 
 const newGameSuccess = function (responseData) {
-  // // we are going to add the 'user' we got back in our response's data to the 'store' object so we can accses the 'user's' token later in the api.js
   store.game = responseData.game
-  console.log('store is', store)
 
-  console.log('responseData is ', responseData)
-  $('#ui-display').hide()
-  $('#ui-display').text('New Game Started!').fadeIn(2000)
-  // $('#ui-display').fadeOut(5000)
-
-  // remove existing classes, then add a green text success class from bootstrap
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-success')
+  $('#ui-display').css('display', 'none').text('New Game Started!').removeClass().addClass('text-success')
+  $('#ui-display').fadeIn(500)
 }
 
 const newGameFailure = function (error) {
+  $('#ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('text-danger')
+  $('#ui-display').fadeIn(500)
   console.error('error is ', error)
 }
 
-// const indexGamesSuccess = function (responseData) {
-//   // we are going to add the 'user' we got back in our response's data to the 'store' object so we can accses the 'user's' token later in the api.js
-//   console.log('store is', store)
-//   console.log(responseData)
-//   console.log('responseData is ', responseData)
-// }
-
-// const indexGamesFailure = function (error) {
-//   console.error('error is ', error)
-// }
-
 const updateGameSuccess = function (responseData) {
   store.game = responseData.game
-  console.log('Update Game Success')
-  console.log(store.game)
 }
-//   // we are going to add the 'user' we got back in our response's data to the 'store' object so we can accses the 'user's' token later in the api.js
-//   cont = false
-//   store.game =
-//   store.user = responseData.user
-//   console.log('store is', store)
 
-//   // tell the user it was successful
-//   $('#ui-display').text('logged in successfully!').fadeOut(5000)
+const updateGameDialogue = function (player, clickedCellIndex) {
+  $('#ui-display').css('display', 'none').text(player + ' Played ' + clickedCellIndex).removeClass()
+  switch (player) {
+    case "X's":
+      $('#ui-display').addClass('text-danger')
+      break
+    case "Oh's":
+      $('#ui-display').addClass('text-primary')
+      break
+  }
 
-//   // remove existing classes, then add a green text success class from bootstrap
-//   $('#ui-display').removeClass()
-//   $('#ui-display').addClass('text-success')
-
-//   // clear (reset) all of the forms
-//   $('form').trigger('reset')
-
-//   $('.gameNotYet').hide()
-//   $('.gameStarted').show()
-
-//   console.log('responseData is ', responseData)
-// }
+  $('#ui-display').fadeIn(500)
+}
 
 const updateGameFailure = function () {
+  $('#ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('text-success')
+  $('#ui-display').fadeIn(500)
   console.log('update game failure')
 }
-//   $('#error-message').text('Logged in unsuccessfully!').fadeOut(5000)
-
-//   // remove existing classes, then add a green text success class from bootstrap
-//   $('error-message').removeClass()
-//   $('error-message').addClass('text-danger')
-
-//   console.error('error is ', error)
-// }
 
 const oWins = function () {
-  $('#ui-display').hide()
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-primary')
-  $('#ui-display').text('O Wins!').fadeIn(500)
-  // $('#ui-display').fadeOut(5000)
+  $('#ui-display').css('display', 'none').text("Oh's Win!").removeClass().addClass('text-primary')
+  $('#ui-display').fadeIn(500)
 }
 
 const xWins = function () {
-  $('#ui-display').hide()
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-danger')
-  $('#ui-display').text('X Wins!').fadeIn(500)
-  // $('#ui-display').fadeOut(5000)
+  $('#ui-display').css('display', 'none').text("X's Win!").removeClass().addClass('text-danger')
+  $('#ui-display').fadeIn(500)
 }
 
 const draw = function () {
-  $('#ui-display').hide()
-  $('#ui-display').removeClass()
-  $('#ui-display').addClass('text-secondary')
-  $('#ui-display').text('Tie!').fadeIn(500)
-  // $('#ui-display').fadeOut(5000)
+  $('#ui-display').css('display', 'none').text('Tie!').removeClass().addClass('text-secondary')
+  $('#ui-display').fadeIn(500)
 }
 
 const gameNotStarted = function () {
-  $("#ui-display").hide();
-  $("#ui-display").removeClass();
-  $("#ui-display").addClass("text-secondary");
-  $("#ui-display").text("Start New Game First").fadeIn(500);
-  // $('#ui-display').fadeOut(5000)
-};
+  $('#ui-display').css('display', 'none').text('Start New Game First').removeClass().addClass('text-secondary')
+  $('#ui-display').fadeIn(500)
+}
 
 module.exports = {
   signUpSuccess,
@@ -202,6 +115,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   updateGameSuccess,
+  updateGameDialogue,
   updateGameFailure,
   oWins,
   xWins,
