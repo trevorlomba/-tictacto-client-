@@ -1,1 +1,1 @@
-this will be a tic tac toe game for the ageless!
+tic-tac-toe game using jquery with auth. please do not use your real email or password
