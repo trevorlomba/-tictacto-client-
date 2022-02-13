@@ -2,7 +2,11 @@
 
 
 .head {
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-top: 1em;
 }
 .parent{
   color: rgb(0, 0, 0);
@@ -12,7 +16,11 @@
   margin: 0em 10em 0em 10em;
 }
 
-.diatext {
+.game-container {
+  // margin: 0em 0em 10em 0em;
+}
+
+.dialogueText {
   font-size: large;
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,13 +28,13 @@
 }
 
 .X{
-  // background-color: rgba(255, 0, 0);
-  content:url(https://media.istockphoto.com/vectors/dirty-grunge-hand-drawn-with-brush-strokes-cross-x-vector-isolated-vector-id1201202836?k=20&m=1201202836&s=612x612&w=0&h=0ib7KQaJXonfKN0-tGNaMUIw2Hre9sJjd4hTsc3QwBc=);
+  background-color: #da4f4a;
+  content:url("app/styles/x.png");
 }
 
 .O{
-  // background-color: rgba(0, 0, 255);
-  content:url(https://imgprd19.hobbylobby.com/6/f0/3c/6f03cacf1a6d78abcaa8e3655485f2f7c52978fe/700Wx700H-192948-0320-px.jpg);
+  background-color: #016ecd;
+  content:url("app/styles/o.png");
 }
 
 .noodle {
@@ -53,13 +61,17 @@
 
 .child {
   width: 100px;  /* Or whatever */
-  height: 100px; /* Or whatever */
   // width: 30%;  /* Magic! */
   // height: 30%;
   // background-color: rgb(223, 192, 106);
   border: 1px solid black;
   text-align: center;
   flex: auto;
+    &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
 }
 
 .gameNotYet {
@@ -67,19 +79,47 @@
   text-align: center;
 }
 
-.gameStarted {
-  display: none;
+input {
   text-align: center;
+  margin-bottom: 1em
+}
+
+#sign-up {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+#sign-in {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.gameStarted {
+  text-align: center;
+  display: none;
 }
 
 #endGame {
   text-align: center;
 }
 
+// #index-games {
+//   text-align: center;
+// }
+
 #ui-display {
   text-align: center;
-  display: none;
+  display: block;
 }
+
+#ui-box {
+  height: 1em;
+}
+
 #error-message {
   text-align: center;
 }
@@ -92,4 +132,8 @@ div, a {
 
 html, body{
   height: 100%;
+}
+
+.nav {
+  display: block;
 }
