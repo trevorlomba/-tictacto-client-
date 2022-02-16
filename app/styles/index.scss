@@ -13,11 +13,35 @@
   font-size: large;
   display: flex;
   flex-flow: row wrap;
-  margin: 0em 10em 0em 10em;
 }
 
 .game-container {
-  // margin: 0em 0em 10em 0em;
+ color: blue;
+  background-color:yellow;
+  text-decoration: bold;
+  text-size: 1em;
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.game-container * {
+ flex-direction:row;
+  background-color: red;
+  height: 100%;
+}
+
+.game-container :nthchild(1) {
+  flex: 1 2 auto;
+  margin: 0;
+}
+
+.game-container :nthchild(2) {
+  flex: 3 2 auto
+}
+
+.menu{
+
 }
 
 .dialogueText {
@@ -60,13 +84,13 @@
 
 
 .child {
-  width: 100px;  /* Or whatever */
+  padding: 100px;
   // width: 30%;  /* Magic! */
   // height: 30%;
   // background-color: rgb(223, 192, 106);
   border: 1px solid black;
   text-align: center;
-  flex: auto;
+  flex: 4 4 auto;
     &::before {
     content: '';
     display: block;
@@ -103,6 +127,8 @@ input {
   display: none;
 }
 
+
+
 #endGame {
   text-align: center;
 }
@@ -130,8 +156,12 @@ div, a {
 
 }
 
-html, body{
+html {
   height: 100%;
+}
+
+body {
+  height: calc(100vh - 100px)
 }
 
 .nav {
