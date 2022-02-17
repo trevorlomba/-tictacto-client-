@@ -16,8 +16,6 @@
 }
 
 .game-container {
- color: blue;
-  background-color:yellow;
   text-decoration: bold;
   text-size: 1em;
   display: flex;
@@ -27,7 +25,6 @@
 
 .game-container * {
  flex-direction:row;
-  background-color: red;
   height: 100%;
 }
 
@@ -54,11 +51,13 @@
 .X{
   background-color: #da4f4a;
   content:url("app/styles/x.png");
+  max-width: 50px;
 }
 
 .O{
   background-color: #016ecd;
   content:url("app/styles/o.png");
+  max-width: 50px;
 }
 
 .noodle {
@@ -84,11 +83,11 @@
 
 
 .child {
-  padding: 100px;
-  // width: 30%;  /* Magic! */
-  // height: 30%;
+  padding: 50px;
+  width: 30%;  /* Magic! */
+  height: 30%;
   // background-color: rgb(223, 192, 106);
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: center;
   flex: 4 4 auto;
     &::before {
