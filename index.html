@@ -4,18 +4,18 @@
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
+
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
+
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
     </head>
     <body>
-      <!-- <button class="" id="index-games">clickme</button> -->
-      <img src="https://gcdnb.pbrd.co/images/VpK7OH9ZzFur.jpg?o=1" class="head">
-      <h4><div id="ui-display" class="text-secondary">Please Sign In or Sign Up</div></h4>
+
+      <img src="https://gcdnb.pbrd.co/images/VpK7OH9ZzFur.jpg?o=1" class="logo">
+
       <div class="gameNotYet">
         <form id="sign-up" class="border">
           <fieldset>
@@ -28,7 +28,6 @@
           </fieldset>
         </form>
 
-        <!-- Sign in form goes here-->
         <form id="sign-in" class="border">
           <fieldset>
             <legend>Sign In</legend>
@@ -41,51 +40,24 @@
         </form>
 
 
-      <!-- <button class="new-game">New Game</button> -->
+
     </div>
     <div class="gameStarted">
-    <!-- <div class="game-container">
-      <div class="game-board nav head">
-        <button class="new-game border btn btn-primary" id="index-games">New Game</button><br>
-        <br>
-        <div class="dialogue"></div>
-        <br>
-        <div class="dialogueText">Exes - 0 | Ohs - 0</div>
-        <br>
-        <button id="endGame" class="btn border btn-primary">Sign Out</button>
-        </div>
 
-
-     <div>
-     <div class="game-board">
-        <div class="parent">
-        <div class="child box empty" id="1"> </div>
-        <div class="child box empty" id="2"> </div>
-        <div class="child box empty" id="3"> </div>
-        </div>
-        <div class="parent">
-        <div class="child box empty" id="4"> </div>
-        <div class="child box empty" id="5"></div>
-        <div class="child box empty" id="6"> </div>
-        </div>
-        <div class="parent">
-        <div class="child box empty" id="7"> </div>
-        <div class="child box empty" id="8"> </div>
-        <div class="child box empty" id="9"> </div>
-      </div>
-      </div>
-      </div>
-      </div> -->
     <div class="game-container">
-      <div><div class="game-board nav head">
+      <div>
+        <div class="game-board nav head">
+          <h4>
+            <div id="ui-display" class="text-secondary">Please Sign In or Sign Up</div>
+          </h4>
 
-        <button class="new-game border btn btn-primary" id="index-games">New Game</button><br>
-        <br>
+
         <div class="dialogue"></div>
-        <br>
-        <div class="dialogueText">X's 0 <br> Oh's 0</div>
-        <br>
-        <button id="endGame" class="btn border btn-primary">Sign Out</button>
+
+        <div class="dialogueText">X's 0 | Oh's 0</div>
+<button class="new-game game-buttons border btn btn-primary" id="index-games">New Game</button><br>
+
+        <button id="endGame" class="btn game-buttons border btn-primary signout">Sign Out</button>
       </div>
       </div>
     <div>
@@ -107,5 +79,6 @@
       </div></div>
     </div>
     </div>
-    </body>
+    </div>
+  </body>
 </html>

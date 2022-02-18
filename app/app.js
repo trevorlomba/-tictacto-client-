@@ -84,6 +84,15 @@ const checkWinner = i => {
 const announceWinner = i => {
   game = 'inactive'
 
+  $('.dialogueText').text("X's - " + xScore + "     |      Oh's - " + oScore)
+  if (xScore > oScore) {
+    $('.dialogueText').css('color', '#dc3545')
+  } else if (oScore > xScore) {
+    $('.dialogueText').css('color', '#0d6efd')
+  } else {
+    $('.dialogueText').css('color', '#6c757d')
+  }
+
   switch (i) {
     case 'X':
       xScore++
@@ -101,7 +110,6 @@ const announceWinner = i => {
       break
   }
 
-  $('.dialogueText').text('Exes - ' + xScore + '     |      Ohs - ' + oScore)
   showDialogue()
   turn = 0
 }
