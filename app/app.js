@@ -26,7 +26,7 @@ const handleCellPlayed = (first, second) => {
   const clickedCellIndex = first.getAttribute('id')
   gameArray[clickedCellIndex - 1] = second
   authEvents.onUpdateGame(clickedCellIndex, second)
-  // $('#ui-display').hide()
+  // $('.ui-display').hide()
   let player
   switch (second) {
     case 'X':
@@ -84,15 +84,6 @@ const checkWinner = i => {
 const announceWinner = i => {
   game = 'inactive'
 
-  $('.dialogueText').text("X's - " + xScore + "     |      Oh's - " + oScore)
-  if (xScore > oScore) {
-    $('.dialogueText').css('color', '#dc3545')
-  } else if (oScore > xScore) {
-    $('.dialogueText').css('color', '#0d6efd')
-  } else {
-    $('.dialogueText').css('color', '#6c757d')
-  }
-
   switch (i) {
     case 'X':
       xScore++
@@ -108,6 +99,14 @@ const announceWinner = i => {
       $('.dialogue').css('background-color', 'rgba(0, 0, 255, 0.377')
       oWins()
       break
+  }
+  $('.dialogueText').text("X's - " + xScore + "     |      Oh's - " + oScore)
+  if (xScore > oScore) {
+    $('.dialogueText').css('color', '#dc3545')
+  } else if (oScore > xScore) {
+    $('.dialogueText').css('color', '#0d6efd')
+  } else {
+    $('.dialogueText').css('color', '212529')
   }
 
   showDialogue()

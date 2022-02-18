@@ -17,9 +17,20 @@
       <img src="https://gcdnb.pbrd.co/images/VpK7OH9ZzFur.jpg?o=1" class="logo">
 
       <div class="gameNotYet">
+      <h4><div style="color: #343f4b" class="ui-display">Please Sign In or Sign Up</div></h4>
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend style="color: #343f4b">Sign In</legend>
+          <input type="email" name="credentials[email]" placeholder="Email" required><br>
+          <input type="password" name="credentials[password]" placeholder="Password" required><br>
+
+
+          <button class="btn btn-primary">Sign In</button>
+        </fieldset>
+      </form>
         <form id="sign-up" class="border">
           <fieldset>
-            <legend>Sign Up</legend>
+            <legend style="color: #343f4b">Sign Up</legend>
             <input type="email" name="credentials[email]" placeholder="Email" required><br>
             <input type="password" name="credentials[password]" placeholder="Password" required><br>
             <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required> <br>
@@ -28,16 +39,6 @@
           </fieldset>
         </form>
 
-        <form id="sign-in" class="border">
-          <fieldset>
-            <legend>Sign In</legend>
-            <input type="email" name="credentials[email]" placeholder="Email" required><br>
-            <input type="password" name="credentials[password]" placeholder="Password" required><br>
-
-
-            <button class="btn btn-primary">Sign In</button>
-          </fieldset>
-        </form>
 
 
 
@@ -48,13 +49,13 @@
       <div>
         <div class="game-board nav head">
           <h4>
-            <div id="ui-display" class="text-secondary">Please Sign In or Sign Up</div>
+            <div id="" class="ui-display">Please Sign In or Sign Up</div>
           </h4>
 
 
         <div class="dialogue"></div>
 
-        <div class="dialogueText">X's 0 | Oh's 0</div>
+        <div class="dialogueText">X's - 0 | Oh's - 0</div>
 <button class="new-game game-buttons border btn btn-primary" id="index-games">New Game</button><br>
 
         <button id="endGame" class="btn game-buttons border btn-primary signout">Sign Out</button>

@@ -10,14 +10,14 @@
 }
 
 .logo {
-  width: 40%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 
 .parent{
-  color: rgb(0, 0, 0);
+  color: #1a2026;
   font-size: large;
   display: flex;
   flex-flow: row wrap;
@@ -47,31 +47,40 @@
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 0%;
-  color: #6c757d;
+  color: #3d4a3d;
 }
 
 .game-board {
   width: 100%;
 }
 
-.btn-primary{
- background-color:#016ecd
+.btn-primary {
+ background-color:#016ecd;
+ border-radius: 0;
+  }
+
+.btn-primary:hover {
+  background-color: #0131cd;
+  border-color: #0131cd;
 }
 
+
 .signout {
-  background-color:#da4f4a
+  background-color:#da4f4a;
+
 }
+.signout:hover{
+ background-color:#0131cd;
+ border-color: #0131cd;
+}
+
 
 .X{
   background-color: #da4f4a;
-  content:url("app/styles/x.png");
-  max-width: 50px;
 }
 
 .O{
   background-color: #016ecd;
-  content:url("app/styles/o.png");
-  max-width: 50px;
 }
 
 .noodle {
@@ -101,7 +110,7 @@
   width: 30%;  /* Magic! */
   height: 30%;
   // background-color: rgb(223, 192, 106);
-  border: 2px solid black;
+  border: 2px solid #1a2026;
   text-align: center;
   flex: 4 4 auto;
     &::before {
@@ -111,10 +120,12 @@
   }
 }
 
+
+
+
 .gameNotYet {
   display: block;
   text-align: center;
-  padding-top: 1em;
 }
 
 input {
@@ -123,17 +134,17 @@ input {
 }
 
 #sign-up {
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+margin-left: auto;
+margin-right:auto;
+  padding: 1em;
+  color: #212529;
   }
 
 #sign-in {
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+margin-left: auto;
+margin-right:auto;
+  padding: 1em;
+  color: #212529;
   }
 
 .gameStarted {
@@ -147,7 +158,7 @@ input {
   text-align: center;
 }
 
-#ui-display {
+.ui-display {
   text-align: center;
   display: block;
 }
