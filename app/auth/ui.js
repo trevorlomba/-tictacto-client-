@@ -50,7 +50,6 @@ const signOutFailure = function () {
 
 const newGameSuccess = function (responseData) {
   store.game = responseData.game
-
   $('.ui-display').css('display', 'none').text('New Game Started!').removeClass().addClass('ui-display text-success')
   $('.ui-display').fadeIn(500)
 }

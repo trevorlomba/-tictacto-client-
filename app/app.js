@@ -10,16 +10,6 @@ let oScore = 0
 const showDialogue = () => {
   $('.dialogue').show()
   $('.dialogue').fadeOut(500)
-  gameClear()
-}
-
-const gameClear = () => {
-  gameArray = ['', '', '', '', '', '', '', '', '']
-  $('.child').each(function () {
-    $(this).removeClass('X')
-    $(this).removeClass('O')
-    $(this).addClass('empty')
-  })
 }
 
 const handleCellPlayed = (first, second) => {
@@ -91,7 +81,6 @@ const announceWinner = i => {
         'background-color',
         'rgba(255, 0, 0, 0.377'
       )
-      console.log(xScore)
       xWins()
       break
     case 'O':
@@ -147,9 +136,15 @@ $(() => {
       authEvents.onNewGame()
       setNewGame()
     })
-    $('.nav').click(function () {
-      gameClear()
-    })
+    $('.newgit ').click(function () {
+      gameArray = ['', '', '', '', '', '', '', '', '']
+      $('.child').each(function () {
+        $(this).removeClass()
+        $(this).addClass('child box empty')
+        $(this).removeAttr('bg-color')
+      })
+    }
+    )
     $('.dialogue').click(function () {
       hideDialogue()
     })
