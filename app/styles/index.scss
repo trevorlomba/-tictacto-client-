@@ -9,8 +9,17 @@
   padding: 5em;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  height: calc(100vh - 100px)
+}
+
 .logo {
   width: 30%;
+  min-width: 430px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -38,10 +47,6 @@
 }
 
 
-.menu{
-
-}
-
 .dialogueText {
   // font-size: large;
   font-weight: bolder;
@@ -51,7 +56,8 @@
 }
 
 .game-board {
-  width: 100%;
+  display: block;
+  width: 25em;
 }
 
 .btn-primary {
@@ -112,12 +118,12 @@
   // background-color: rgb(223, 192, 106);
   border: 2px solid #1a2026;
   text-align: center;
-  flex: 4 4 auto;
-    &::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-  }
+  // flex: 4 4 auto;
+  //   &::before {
+  //   content: '';
+  //   display: block;
+  //   padding-top: 100%;
+  // }
 }
 
 
@@ -133,19 +139,13 @@ input {
   margin-bottom: 1em
 }
 
-#sign-up {
+#sign-up, #sign-in {
 margin-left: auto;
 margin-right:auto;
   padding: 1em;
   color: #212529;
   }
 
-#sign-in {
-margin-left: auto;
-margin-right:auto;
-  padding: 1em;
-  color: #212529;
-  }
 
 .gameStarted {
   text-align: center;
@@ -153,47 +153,17 @@ margin-right:auto;
 }
 
 
-
-#endGame {
-  text-align: center;
-}
-
-.ui-display {
+#endGame {}
+#error-message, .ui-display {
   text-align: center;
   display: block;
 }
 
 .game-buttons {
-  width: 100%;
+  width: 70%;
   margin-top: .5em;
 }
 
-#ui-box {
-  height: 1em;
-}
-
-#error-message {
-  text-align: center;
-}
-
-div, a {
-    /* add border to padding for visibility */
-    // padding: 1rem;
-
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  height: calc(100vh - 100px)
-}
-
-.nav {
-  display: block;
-  width: 25em;
-}
 
 .game-container :nthchild(1) {
   flex: 1 2 auto;
