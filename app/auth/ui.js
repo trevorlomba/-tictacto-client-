@@ -4,29 +4,29 @@
 const store = require('../store')
 
 const signUpSuccess = function (responseData) {
-  $('#ui-display').css('display', 'none').text('Signed Up Successfully!').removeClass().addClass('text-success')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Signed Up!').removeClass().addClass('ui-display text-success')
+  $('.ui-display').fadeIn(500)
   $('form').trigger('reset')
 }
 
 const signUpFailure = function (responseData) {
-  $('#ui-display').css('display', 'none').text('Signed Up Unsuccessfully!').removeClass().addClass('text-danger')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Signed Up Unsuccessfully!').removeClass().addClass('ui-display text-danger')
+  $('.ui-display').fadeIn(500)
   $('form').trigger('reset')
 }
 
 const signInSuccess = function (responseData) {
   store.user = responseData.user
-  $('#ui-display').css('display', 'none').text('Signed In Successfully!').removeClass().addClass('text-success')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Signed In!').removeClass().addClass('ui-display text-success')
+  $('.ui-display').fadeIn(500)
   $('form').trigger('reset')
   $('.gameNotYet').hide()
   $('.gameStarted').show()
 }
 
 const signInFailure = function (error) {
-  $('#ui-display').css('display', 'none').text('Signed In Unsuccessfully!').removeClass().addClass('text-danger')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Signed In Unsuccessfully!').removeClass().addClass('ui-display text-danger')
+  $('.ui-display').fadeIn(500)
 
   $('form').trigger('reset')
 
@@ -34,8 +34,8 @@ const signInFailure = function (error) {
 }
 
 const signOutSuccess = function () {
-  $('#ui-display').css('display', 'none').text('Signed Out Successfully!').removeClass().addClass('text-success')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Signed Out!').removeClass().addClass('ui-display text-success')
+  $('.ui-display').fadeIn(500)
 
   $('form').trigger('reset')
 
@@ -44,20 +44,20 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('#ui-display').css('display', 'none').text('Sign Out Failed!').removeClass().addClass('text-danger')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Sign Out Failed!').removeClass().addClass('ui-display text-danger')
+  $('.ui-display').fadeIn(500)
 }
 
 const newGameSuccess = function (responseData) {
   store.game = responseData.game
 
-  $('#ui-display').css('display', 'none').text('New Game Started!').removeClass().addClass('text-success')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('New Game Started!').removeClass().addClass('ui-display text-success')
+  $('.ui-display').fadeIn(500)
 }
 
 const newGameFailure = function (error) {
-  $('#ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('text-danger')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('ui-display text-danger')
+  $('.ui-display').fadeIn(500)
   console.error('error is ', error)
 }
 
@@ -66,43 +66,40 @@ const updateGameSuccess = function (responseData) {
 }
 
 const updateGameDialogue = function (player, clickedCellIndex) {
-  $('#ui-display').css('display', 'none').text(player + ' Played ' + clickedCellIndex).removeClass()
+  $('.ui-display').text(player + ' Played ' + clickedCellIndex).removeClass().addClass('ui-display')
   switch (player) {
     case "X's":
-      $('#ui-display').addClass('text-danger')
+      $('.ui-display').addClass('text-danger')
       break
     case "Oh's":
-      $('#ui-display').addClass('text-primary')
+      $('.ui-display').addClass('text-primary')
       break
   }
 
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').fadeIn(500)
 }
 
 const updateGameFailure = function () {
-  $('#ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('text-success')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').css('display', 'none').text('Error: Check Console').removeClass().addClass('ui-display text-success')
+  $('.ui-display').fadeIn(500)
   console.log('update game failure')
 }
 
 const oWins = function () {
-  $('#ui-display').css('display', 'none').text("Oh's Win!").removeClass().addClass('text-primary')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').text("Oh's Win!").removeClass().addClass('ui-display text-primary')
 }
 
 const xWins = function () {
-  $('#ui-display').css('display', 'none').text("X's Win!").removeClass().addClass('text-danger')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').text("X's Win!").removeClass().addClass('ui-display text-danger')
 }
 
 const draw = function () {
-  $('#ui-display').css('display', 'none').text('Tie!').removeClass().addClass('text-secondary')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').text('Tie!').removeClass().addClass('ui-display').css('color', 'darkorchid')
 }
 
 const gameNotStarted = function () {
-  $('#ui-display').css('display', 'none').text('Start New Game First').removeClass().addClass('text-secondary')
-  $('#ui-display').fadeIn(500)
+  $('.ui-display').text('Start New Game First').removeClass().addClass('ui-display').css('color', '#343f4b')
+  $('.ui-display').fadeIn(500)
 }
 
 module.exports = {
