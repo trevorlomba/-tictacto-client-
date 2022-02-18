@@ -136,7 +136,7 @@ $(() => {
       authEvents.onNewGame()
       setNewGame()
     })
-    $('.newgit ').click(function () {
+    $('.new').click(function () {
       gameArray = ['', '', '', '', '', '', '', '', '']
       $('.child').each(function () {
         $(this).removeClass()
