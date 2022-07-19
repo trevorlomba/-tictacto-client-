@@ -1,4 +1,5 @@
-# X's and Oh's by Trevor Lomba
+# X's and Oh's 
+#### by Trevor Lomba
 
 ## Quick Links
 * [deployed app](https://trevorlomba.github.io/tictacto-client/)
